@@ -1,0 +1,7 @@
+openai
+python-docx
+PyPDF2
+faiss-cpu
+numpy
+pinecone-client
+python-dotenv
