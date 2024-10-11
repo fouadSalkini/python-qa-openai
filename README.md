@@ -1,6 +1,9 @@
 ## Overview
 A simple QA app that answer questions based on specified data imported in docx and pdf formats
 
+<img width="663" alt="Screen Shot 2024-10-11 at 11 42 03 PM" src="https://github.com/user-attachments/assets/d5a14b3b-c541-4dc8-b6b7-a38993210bed">
+
+
 ## Installation
 ### install libraries
 ```
