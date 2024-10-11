@@ -1,0 +1,79 @@
+1. Smartwatch X200
+Features:
+1.6-inch OLED Display
+Heart rate and blood oxygen monitor
+GPS tracking
+7-day battery life
+Price: $199.99
+
+2. Wireless Earbuds Pro
+Features:
+Active Noise Cancellation
+Bluetooth 5.2 connectivity
+24-hour battery with charging case
+Water-resistant (IPX7)
+Price: $149.99
+
+3. Laptop Air 14
+Features:
+14-inch Full HD Display
+Intel Core i5, 8GB RAM, 256GB SSD
+Backlit keyboard
+Battery life up to 10 hours
+Price: $899.00
+
+4. 4K Ultra HD Smart TV 55"
+Features:
+55-inch 4K Ultra HD display
+Dolby Vision and HDR10
+Built-in streaming apps (Netflix, Prime Video, etc.)
+Voice control with Alexa
+Price: $599.00
+
+5. DSLR Camera ZX100
+Features:
+24.2 MP APS-C sensor
+4K video recording
+Wi-Fi and Bluetooth connectivity
+18-55mm lens kit included
+Price: $749.00
+
+6. Robot Vacuum Cleaner RVC300
+Features:
+Smart navigation system
+2000Pa suction power
+App control and scheduling
+Compatible with Alexa and Google Assistant
+Price: $349.00
+
+7. Gaming Console Z-Box
+Features:
+4K gaming support
+1TB storage
+Includes wireless controller
+Access to over 100 games
+Price: $499.99
+
+8. Noise-Cancelling Headphones 700
+Features:
+Advanced noise-cancellation
+Up to 20 hours of battery life
+Touch controls
+Lightweight design
+Price: $299.00
+
+9. Air Purifier AP500
+Features:
+HEPA filter for 99.9% allergen removal
+Coverage up to 500 sq ft
+Real-time air quality monitor
+Sleep mode with ultra-quiet operation
+Price: $199.00
+
+10. Fitness Tracker F7
+Features:
+1.2-inch touchscreen
+Heart rate and sleep tracking
+Waterproof (up to 50 meters)
+10-day battery life
+Price: $79.99
