@@ -7,6 +7,12 @@ A simple QA app that answer questions based on specified data imported in docx a
 pip install -r requirements.txt
 ```
 
+### copy env file and put your OPENAI_API_KEY
+```
+cp .env.example .env
+```
+
+
 ### put your documents(docx,pdf) inside data/documents
 
 ### create indexes for your documents
