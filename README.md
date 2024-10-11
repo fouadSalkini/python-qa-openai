@@ -1,7 +1,7 @@
 ## Overview
 A simple QA app that answer questions based on specified data imported in docx and pdf formats
 
-Sample: [sample1.docx](./samples/sample1.docx)
+Sample: [sample1.docx](./samples/sample1.txt)
 
 Result:
 
