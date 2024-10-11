@@ -5,6 +5,7 @@ from scripts.extract_text import extract_all_documents
 from scripts.generate_embeddings import generate_and_save_embeddings
 from scripts.build_faiss_index import faiss_index
 
+
 load_dotenv()
 
 def run_command(command):
@@ -17,6 +18,8 @@ def run_command(command):
 
 def main():
     print("Using OpenAI API Key1:", getenv("OPENAI_API_KEY"))
+
+    
     print("Extracting text from documents...")
     extract_all_documents()
 

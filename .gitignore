@@ -53,6 +53,8 @@ coverage.xml
 .pytest_cache/
 cover/
 
+embeddings/*
+faiss_index/*
 data/extracted_text/*
 # Translations
 *.mo

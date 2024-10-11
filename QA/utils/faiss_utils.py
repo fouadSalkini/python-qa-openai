@@ -1,10 +1,14 @@
 import faiss
 import numpy as np
+import os
 
 def build_faiss_index(embeddings, index_path='faiss_index/faiss_index.bin'):
     """
     Builds and saves a FAISS index from the given embeddings.
     """
+    if not os.path.exists('faiss_index'):
+        os.makedirs('faiss_index')
+
     dimension = embeddings.shape[1]
     index = faiss.IndexFlatL2(dimension)
     index.add(embeddings)
