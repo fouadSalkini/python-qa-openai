@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print("Using OpenAI API Key2:", getenv("OPENAI_API_KEY"))
+# print("Using OpenAI API Key2:", getenv("OPENAI_API_KEY"))
 client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
 
 def create_embedding(text, model='text-embedding-ada-002'):

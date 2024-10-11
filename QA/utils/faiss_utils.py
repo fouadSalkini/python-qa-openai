@@ -21,7 +21,7 @@ def load_faiss_index(index_path='faiss_index/faiss_index.bin'):
     Loads a FAISS index from the specified path.
     """
     index = faiss.read_index(index_path)
-    print(f"FAISS index loaded from {index_path}")
+    # print(f"FAISS index loaded from {index_path}")
     return index
 
 def search_faiss(index, query_embedding, top_k=5):

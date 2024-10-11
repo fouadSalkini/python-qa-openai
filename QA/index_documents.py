@@ -17,7 +17,7 @@ def run_command(command):
         print(stdout.decode())
 
 def main():
-    print("Using OpenAI API Key1:", getenv("OPENAI_API_KEY"))
+    # print("Using OpenAI API Key1:", getenv("OPENAI_API_KEY"))
 
 
     print("Extracting text from documents...")
