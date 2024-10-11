@@ -1,36 +1,61 @@
 import subprocess
 from os import getenv
 from dotenv import load_dotenv
-from scripts.extract_text import extract_all_documents
-from scripts.generate_embeddings import generate_and_save_embeddings
-from scripts.build_faiss_index import faiss_index
+import numpy as np
+from openai import OpenAI
+from utils.faiss_utils import load_faiss_index, search_faiss
+from utils.embedding_utils import create_embedding
 
 
 load_dotenv()
 
-def run_command(command):
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-    if process.returncode != 0:
-        print(f"Error running command: {command}\n{stderr.decode()}")
-    else:
-        print(stdout.decode())
+client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
 
-def main():
-    print("Using OpenAI API Key1:", getenv("OPENAI_API_KEY"))
 
-    
-    print("Extracting text from documents...")
-    extract_all_documents()
 
-    print("Generating embeddings...")
-    generate_and_save_embeddings()
 
-    print("Building FAISS index...")
-    faiss_index()
-   
 
-    print("Workflow completed successfully!")
+def load_metadata(metadata_path='embeddings/embeddings_metadata.npy'):
+    return np.load(metadata_path, allow_pickle=True)
+
+def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata_path='embeddings/embeddings_metadata.npy', top_k=5):
+    # Load FAISS index
+    index = load_faiss_index(index_path)
+
+    # Create embedding for the question
+    question_embedding = create_embedding(question)
+    question_embedding = np.array(question_embedding).astype('float32')
+
+    # Search FAISS index
+    indices, distances = search_faiss(index, question_embedding, top_k)
+
+    # Load metadata
+    metadata = load_metadata(metadata_path)
+
+    # Retrieve relevant text chunks
+    relevant_texts = [metadata[idx]['text'] for idx in indices]
+
+    # Prepare context for OpenAI
+    context = "\n".join(relevant_texts)
+    prompt = f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"
+
+    # Generate answer using OpenAI
+    # response = client.completions.create(engine="text-davinci-003",  # or use "gpt-3.5-turbo" with ChatCompletion
+    #     prompt=prompt,
+    #     max_tokens=150,
+    #     temperature=0.3
+    # )
+    response = client.completions.create(
+        model="gpt-3.5-turbo-instruct",
+        prompt=prompt,
+        max_tokens=150,
+        temperature=0.3
+    )
+
+    answer = response.choices[0].text.strip()
+    return answer
 
 if __name__ == "__main__":
-    main()
+    user_question = input("Ask a question: ")
+    answer = answer_question(user_question)
+    print(f"Answer: {answer}")
