@@ -1,12 +1,11 @@
-import os
 from openai import OpenAI
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-import os
+from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()
 
+print("Using OpenAI API Key2:", getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
 
 def create_embedding(text, model='text-embedding-ada-002'):
     """

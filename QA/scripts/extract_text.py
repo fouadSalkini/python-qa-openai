@@ -39,5 +39,3 @@ def extract_all_documents(documents_dir='data/documents/'):
         else:
             print(f"Unsupported file format: {file}")
 
-if __name__ == "__main__":
-    extract_all_documents()

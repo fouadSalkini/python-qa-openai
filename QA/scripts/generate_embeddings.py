@@ -42,6 +42,3 @@ def generate_and_save_embeddings(output_path='embeddings/embeddings.npy', chunk_
     np.save(metadata_path, np.array(metadata, dtype=object))
     print(f"Embeddings saved to {output_path}")
     print(f"Metadata saved to {metadata_path}")
-
-if __name__ == "__main__":
-    generate_and_save_embeddings()
