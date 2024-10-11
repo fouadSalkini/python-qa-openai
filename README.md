@@ -1,5 +1,5 @@
 ## Overview
-A simple QA app that answer questions based on specified data imported in docx and pdf formats
+A simple QA app that answers questions based on specified data imported from DOCX and PDF formats.
 
 Sample: [sample1.docx](./samples/sample1.txt)
 
