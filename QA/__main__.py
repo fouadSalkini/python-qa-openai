@@ -41,11 +41,11 @@ def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata
     # Retrieve relevant text chunks
     relevant_texts = [metadata[idx]['text'] for idx in indices]
 
-    # print(relevant_texts)
+    # print(f"relevant: {relevant_texts}")
 
     # Prepare context for OpenAI
     context = "\n".join(relevant_texts)
-    prompt = f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"
+    prompt = f"Answer the following question based on the provided text:\n{context}\n\nQuestion: {question}\nAnswer:"
 
     # Generate answer using OpenAI
     # response = client.completions.create(engine="text-davinci-003",  # or use "gpt-3.5-turbo" with ChatCompletion
@@ -57,9 +57,9 @@ def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata
         model="gpt-3.5-turbo-instruct",
         prompt=prompt,
         max_tokens=150,
-        temperature=0,
+        temperature=0.2,
     )
-
+    print(f"Tokens: {response.usage.total_tokens}")
     answer = response.choices[0].text.strip()
     return answer
 
