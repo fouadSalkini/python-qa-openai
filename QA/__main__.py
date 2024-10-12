@@ -18,7 +18,13 @@ client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
 def load_metadata(metadata_path='embeddings/embeddings_metadata.npy'):
     return np.load(metadata_path, allow_pickle=True)
 
+
+messages = []
+
 def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata_path='embeddings/embeddings_metadata.npy', top_k=5):
+    
+    messages.append({"role": "user", "content": question})
+
     # Load FAISS index
     index = load_faiss_index(index_path)
 
@@ -35,6 +41,8 @@ def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata
     # Retrieve relevant text chunks
     relevant_texts = [metadata[idx]['text'] for idx in indices]
 
+    # print(relevant_texts)
+
     # Prepare context for OpenAI
     context = "\n".join(relevant_texts)
     prompt = f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"
@@ -49,7 +57,7 @@ def answer_question(question, index_path='faiss_index/faiss_index.bin', metadata
         model="gpt-3.5-turbo-instruct",
         prompt=prompt,
         max_tokens=150,
-        temperature=0.3
+        temperature=0,
     )
 
     answer = response.choices[0].text.strip()
